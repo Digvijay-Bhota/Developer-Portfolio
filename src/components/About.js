@@ -44,8 +44,6 @@ export default function About() {
               {/* Floating badges */}
               <div className="float-badge badge-react">⚛ React</div>
               <div className="float-badge badge-node">🌲 Node.js</div>
-              <div className="float-badge badge-tailwind CSS">🎨 Tailwind CSS</div>
-              <div className="float-badge badge-java (Spring Boot)">☕ Java (Spring Boot)</div>
               <div className="float-badge badge-gitHub">🐙 GitHub</div>
             </div>
 
