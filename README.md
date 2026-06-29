@@ -237,7 +237,7 @@ git add .
 git commit -m "Initial portfolio commit"
 
 # 2. Push to GitHub
-gh repo create varsha-portfolio --public
+gh repo create digvijay-portfolio --public
 git push -u origin main
 ```
 
@@ -372,10 +372,10 @@ server {
 
 ```bash
 # Build image
-docker build -t Digvijay-portfolio .
+docker build -t digvijay-portfolio .
 
 # Run locally
-docker run -p 3000:80 Digvijay-portfolio
+docker run -p 3000:80 digvijay-portfolio
 ```
 
 ---
@@ -404,7 +404,7 @@ On Netlify/Vercel: Add env vars in dashboard → Site Settings → Environment V
 
 ## 📊 Performance Tips
 
-- Replace emoji avatars with your real photo: `<img src="/your-photo.jpg" alt="Varsha" />`
+- Replace emoji avatars with your real photo: `<img src="/your-photo.jpg" alt="Digvijay" />`
 - Add `loading="lazy"` to all images
 - Use WebP images for better performance
 - Add a `robots.txt` for SEO
