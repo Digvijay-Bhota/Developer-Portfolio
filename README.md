@@ -1,4 +1,4 @@
-# 🚀 Varsha Thakur — Developer Portfolio
+# 🚀 Digvijay Bhota — Developer Portfolio
 
 A fully-featured, animated personal portfolio built with **React 18** featuring:
 - Particle canvas animation in the Hero
@@ -431,6 +431,7 @@ MIT — Feel free to use and customize!
 
 ---
 
-**Built with 💜 by Varsha Thakur**
-#   D e v e l o p e r - P o r t f o l i o  
+**Built with 💜 by Digvijay Bhota**
+#   D e v e l o p e r - P o r t f o l i o 
+ 
  
