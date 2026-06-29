@@ -372,10 +372,10 @@ server {
 
 ```bash
 # Build image
-docker build -t varsha-portfolio .
+docker build -t Digvijay-portfolio .
 
 # Run locally
-docker run -p 3000:80 varsha-portfolio
+docker run -p 3000:80 Digvijay-portfolio
 ```
 
 ---
