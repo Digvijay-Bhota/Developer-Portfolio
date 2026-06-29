@@ -58,8 +58,14 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a className="nav-cta" href="mailto:varshagaddam22@gmail.com">Hire Me</a>
-          </li>
+  <a
+    className="nav-cta"
+    href="mailto:digvijaybhota777@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Digvijay,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
+  >
+    Hire Me
+  </a>
+</li>
+
         </ul>
 
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">

@@ -7,13 +7,13 @@ const skills = [
   { name: 'JavaScript', level: 85, color: '#f7df1e', icon: '⚡' },
   { name: 'HTML5', level: 95, color: '#e34f26', icon: '🏗' },
   { name: 'CSS3', level: 92, color: '#264de4', icon: '🎨' },
-  { name: 'Flask', level: 80, color: '#000000', icon: '🔥' },
+  { name: 'GitHub', level: 80, color: '#000000', icon: '🐙' },
   { name: 'Node.js', level: 75, color: '#339933', icon: '🟢' },
   { name: 'MySQL', level: 78, color: '#4479a1', icon: '🗄' },
 ];
 
 const tools = [
-  'Git', 'GitHub', 'VS Code', 'Figma', 'Postman', 'Bootstrap',
+  'Git', 'GitHub', 'VS Code', 'Figma', 'Docker', 'Bootstrap',
   'Django', 'REST APIs', 'Responsive Design', 'Problem Solving'
 ];
 
@@ -104,10 +104,10 @@ export default function Skills() {
               <div className="dsa-icon">🏆</div>
               <div>
                 <h4>Competitive Programming</h4>
-                <p>Solved <strong>100+</strong> DSA problems across LeetCode, GFG & HackerRank</p>
+                <p>Solved <strong>70+</strong> DSA problems across LeetCode, GFG & HackerRank</p>
                 <div className="dsa-badges">
-                  <span>AIR 148 – TechGig 2022</span>
-                  <span>AIR 35 – TG3 Coding 2022</span>
+                  <span> 148 – TechGig 2022</span>
+                  <span> 35 – TG3 Coding 2022</span>
                 </div>
               </div>
             </div>

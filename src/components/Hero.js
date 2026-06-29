@@ -145,23 +145,23 @@ export default function Hero() {
 
         <p className="hero-desc">
           I craft <strong>high-performance web applications</strong> with clean code
-          and beautiful interfaces. Skilled in Python, React, and full-stack development
+          and beautiful interfaces. Skilled in javascript, Python, React, and full-stack development
           — I turn ideas into digital experiences.
         </p>
 
         <div className="hero-stats">
           <div className="stat">
-            <span className="stat-num">10+</span>
+            <span className="stat-num">7+</span>
             <span className="stat-label">Projects</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-num">700+</span>
+            <span className="stat-num">70+</span>
             <span className="stat-label">DSA Solved</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-num">AIR 35</span>
+            <span className="stat-num">No: 35</span>
             <span className="stat-label">TG3 Coding 2022</span>
           </div>
         </div>

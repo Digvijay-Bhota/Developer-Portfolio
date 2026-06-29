@@ -77,7 +77,7 @@ Copy all files from `src/` and `public/` folders into your project.
 
 ```bash
 public/
-├── Varsha_Resume.pdf     ← your actual CV
+├── Digvijay_Resume.pdf     ← your actual CV
 └── (optional) favicon.ico
 ```
 
@@ -404,7 +404,7 @@ On Netlify/Vercel: Add env vars in dashboard → Site Settings → Environment V
 
 ## 📊 Performance Tips
 
-- Replace emoji avatars with your real photo: `<img src="/your-photo.jpg" alt="Varsha" />`
+- Replace emoji avatars with your real photo: `<img src="C:\projects 1\portfolio\public\Digvijay_Bhota_img.jpeg" alt="Digvijay" />`
 - Add `loading="lazy"` to all images
 - Use WebP images for better performance
 - Add a `robots.txt` for SEO
