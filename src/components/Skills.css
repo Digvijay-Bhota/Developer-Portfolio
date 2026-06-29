@@ -1,0 +1,170 @@
+.skills-section {
+  background: #060612;
+  position: relative;
+}
+
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent);
+}
+
+.skills-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.skills-subtitle {
+  color: #8888a8;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.skills-sub-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+  color: #e8e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-sub-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(124, 58, 237, 0.2);
+}
+
+/* Skill bars */
+.skill-item {
+  margin-bottom: 1.25rem;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-icon { font-size: 1rem; }
+
+.skill-level {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #7c3aed;
+}
+
+.skill-bar-bg {
+  height: 6px;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* Tools cloud */
+.tools-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 2rem;
+}
+
+.tool-chip {
+  padding: 0.4rem 0.875rem;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #a888f7;
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.tool-chip:hover {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #e8e8f0;
+  transform: translateY(-2px);
+}
+
+/* DSA Card */
+.dsa-card {
+  display: flex;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(34,211,238,0.05));
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.dsa-icon { font-size: 2rem; flex-shrink: 0; }
+.dsa-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+.dsa-card p { font-size: 0.85rem; color: #8888a8; line-height: 1.5; }
+.dsa-card strong { color: #7c3aed; }
+
+.dsa-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.dsa-badges span {
+  padding: 0.2rem 0.6rem;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  color: #22d3ee;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; gap: 3rem; }
+}

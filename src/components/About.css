@@ -1,0 +1,172 @@
+.about-section {
+  background: linear-gradient(180deg, #060612 0%, #0a0a1f 50%, #060612 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* LEFT VISUAL */
+.about-visual { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
+
+.about-avatar-wrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  animation: spin-slow 10s linear infinite;
+}
+
+.ring-2 {
+  inset: -28px;
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  animation-duration: 16s;
+  animation-direction: reverse;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.avatar-placeholder {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a0a3a, #0d1a3a);
+  border: 3px solid rgba(124, 58, 237, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  box-shadow: 0 0 60px rgba(124, 58, 237, 0.2);
+  overflow: hidden;
+}
+
+/* Floating tech badges */
+.float-badge {
+  position: absolute;
+  padding: 0.4rem 0.8rem;
+  background: rgba(13, 13, 36, 0.95);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #e8e8f0;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.badge-react { top: 10px; right: -20px; animation: float-badge 4s ease-in-out infinite; }
+.badge-python { bottom: 30px; left: -30px; animation: float-badge 5s ease-in-out infinite 1s; }
+.badge-flask { bottom: 80px; right: -30px; animation: float-badge 4.5s ease-in-out infinite 0.5s; }
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Highlights row */
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.highlight-card {
+  background: rgba(13, 13, 36, 0.8);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: 10px;
+  padding: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.highlight-card:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+.h-icon { font-size: 1.25rem; }
+
+.h-value {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.h-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #8888a8;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* RIGHT CONTENT */
+.about-content { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.about-text {
+  color: #8888a8;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.about-text strong { color: #e8e8f0; }
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.pillar {
+  background: rgba(13, 13, 36, 0.6);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: all 0.3s;
+}
+
+.pillar:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(124, 58, 237, 0.05);
+  transform: translateY(-3px);
+}
+
+.pillar-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.pillar h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+.pillar p { font-size: 0.75rem; color: #8888a8; line-height: 1.5; }
+
+.about-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-visual { order: -1; }
+  .about-pillars { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .about-highlights { grid-template-columns: 1fr; }
+  .about-pillars { grid-template-columns: 1fr; }
+}
