@@ -404,7 +404,7 @@ On Netlify/Vercel: Add env vars in dashboard → Site Settings → Environment V
 
 ## 📊 Performance Tips
 
-- Replace emoji avatars with your real photo: `<img src="public/Digvijay_Bhota_Resume.pdf" alt="Digvijay" />`
+- Replace emoji avatars with your real photo: `<img src="public/Digvijay_Bhota_img.jpeg" alt="Digvijay" />`
 - Add `loading="lazy"` to all images
 - Use WebP images for better performance
 - Add a `robots.txt` for SEO
