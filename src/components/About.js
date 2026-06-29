@@ -43,10 +43,10 @@ export default function About() {
               </div>
               {/* Floating badges */}
               <div className="float-badge badge-react">⚛ React</div>
-              <div className="float-badge badge-python">🌲 Node.js</div>
-              <div className="float-badge badge-Tailwind CSS">🎨 Tailwind CSS</div>
-              <div className="float-badge badge-Java (Spring Boot)">☕ Java (Spring Boot)</div>
-              <div className="float-badge badge-GitHub">🐙 GitHub</div>
+              <div className="float-badge badge-node">🌲 Node.js</div>
+              <div className="float-badge badge-tailwind CSS">🎨 Tailwind CSS</div>
+              <div className="float-badge badge-java (Spring Boot)">☕ Java (Spring Boot)</div>
+              <div className="float-badge badge-gitHub">🐙 GitHub</div>
             </div>
 
             <div className="about-highlights">
