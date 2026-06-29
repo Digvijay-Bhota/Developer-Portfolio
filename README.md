@@ -404,7 +404,7 @@ On Netlify/Vercel: Add env vars in dashboard → Site Settings → Environment V
 
 ## 📊 Performance Tips
 
-- Replace emoji avatars with your real photo: `<img src="/your-photo.jpg" alt="Varsha" />`
+- Replace emoji avatars with your real photo: `<img src="public/Digvijay_Bhota_Resume.pdf alt="Varsha" />`
 - Add `loading="lazy"` to all images
 - Use WebP images for better performance
 - Add a `robots.txt` for SEO
@@ -432,5 +432,6 @@ MIT — Feel free to use and customize!
 ---
 
 **Built with 💜 by Varsha Thakur**
-#   D e v e l o p e r - P o r t f o l i o  
+#   D e v e l o p e r - P o r t f o l i o 
+ 
  
