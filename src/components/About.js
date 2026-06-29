@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import './About.css';
 
 const highlights = [
-  { icon: '🚀', label: 'Projects Delivered', value: '10+' },
-  { icon: '💡', label: 'DSA Problems Solved', value: '700+' },
-  { icon: '🏆', label: 'Hackathon Rank (AIR)', value: '35' },
-  { icon: '📚', label: 'Tech Stack', value: '8+' },
+  { icon: '🚀', label: 'Projects Delivered', value: '7+' },
+  { icon: '💡', label: 'DSA Problems Solved', value: '70+' },
+  { icon: '🏆', label: 'Hackathon Rank (NO)', value: '135' },
+  { icon: '📚', label: 'Tech Stack', value: '7+' },
 ];
 
 export default function About() {
@@ -44,9 +44,9 @@ export default function About() {
               {/* Floating badges */}
               <div className="float-badge badge-react">⚛ React</div>
               <div className="float-badge badge-python">🌲 Node.js</div>
-              <div className="float-badge badge-flask">🎨 Tailwind CSS</div>
-              <div className="float-badge badge-flask">☕ Java (Spring Boot)</div>
-              <div className="float-badge badge-flask">🐙 GitHub</div>
+              <div className="float-badge badge-Tailwind CSS">🎨 Tailwind CSS</div>
+              <div className="float-badge badge-Java (Spring Boot)">☕ Java (Spring Boot)</div>
+              <div className="float-badge badge-GitHub">🐙 GitHub</div>
             </div>
 
             <div className="about-highlights">
