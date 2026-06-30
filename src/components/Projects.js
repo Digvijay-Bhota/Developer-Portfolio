@@ -10,7 +10,7 @@ const projects = [
   tech: ["React", "Node.js", "Express", "PostgreSQL", "JavaScript"],
   emoji: "🏕️",
   color: "#22c55e",
-  link: "https://github.com/Digvijay-Bhota/chanshal-camping-and-trekking",
+  link: "https://chanshal-camping-and-trekking-six.vercel.app/",
   featured: true,
 },
   {
