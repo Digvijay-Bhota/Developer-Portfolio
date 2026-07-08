@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-glow" />
       <div className="container footer-inner">
         <a className="footer-logo" href="#home">
-          <span className="footer-bracket">&lt;</span>VT<span className="footer-bracket">/&gt;</span>
+          <span className="footer-bracket">&lt;</span>DB<span className="footer-bracket">/&gt;</span>
         </a>
         <p className="footer-text">
           Crafted with <span className="heart">♥</span> by Digvijay Bhota · {year}
