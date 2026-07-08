@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="nav-container">
         <a className="nav-logo" href="#home" onClick={() => handleNav('#home')}>
           <span className="logo-bracket">&lt;</span>
-          VT
+          DB
           <span className="logo-bracket">/&gt;</span>
         </a>
 
