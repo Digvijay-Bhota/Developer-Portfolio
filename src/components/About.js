@@ -39,7 +39,7 @@ export default function About() {
               <div className="avatar-ring" />
               <div className="avatar-ring ring-2" />
               <div className="avatar-placeholder">
-                <span>VT</span>
+                <span>DB</span>
               </div>
               {/* Floating badges */}
               <div className="float-badge badge-react">⚛ React</div>
