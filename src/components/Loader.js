@@ -17,7 +17,7 @@ export default function Loader() {
   return (
     <div className="loader">
       <div className="loader-inner">
-        <div className="loader-logo">VT</div>
+        <div className="loader-logo">DB</div>
         <div className="loader-bar-wrap">
           <div className="loader-bar" style={{ width: `${Math.min(progress, 100)}%` }} />
         </div>
