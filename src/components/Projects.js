@@ -3,98 +3,113 @@ import './Projects.css';
 
 const projects = [
   {
-  id: 1,
-  title: "Chanshal Camping & Trekking",
-  category: "Full Stack",
-  desc: "A full-stack camping and trekking booking platform with responsive UI, booking management, and modern React frontend.",
-  tech: ["React", "Node.js", "Express", "PostgreSQL", "JavaScript"],
-  emoji: "🏕️",
-  color: "#22c55e",
-  link: "https://chanshal-camping-and-trekking-six.vercel.app/",
-  featured: true,
-},
+    id: 1,
+    title: "Chanshal Camping & Trekking",
+    category: "Full Stack",
+    desc: "A full-stack camping and trekking booking platform with responsive UI, booking management, and modern React frontend.",
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "JavaScript"],
+    emoji: "🏕️",
+    color: "#22c55e",
+    link: "https://chanshal-camping-and-trekking-six.vercel.app/",
+    github: "#",
+    featured: true,
+  },
   {
-  id: 2,
-  title: "Developer Portfolio",
-  category: "Frontend",
-  desc: "A responsive personal portfolio showcasing projects, skills, resume, and contact form.",
-  tech: ["React", "CSS", "JavaScript"],
-  emoji: "💼",
-  color: "#3b82f6",
-  link: "https://github.com/Digvijay-Bhota/developer-portfolio",
-  featured: true,
-},
+    id: 2,
+    title: "/ChopalOrchard e-commerce Web Application",
+    category: "Full Stack",
+    desc: "A modern dynamic web application featuring user authentication, real-time data processing, interactive dashboard analytics, and RESTful API integrations.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    emoji: "⚡",
+    color: "#8b5cf6",
+    link: "#",
+    github: "#",
+    featured: true,
+  },
   {
-  id: 3,
-  title: "Todo App",
-  category: "Frontend",
-  desc: "Task management application with add, edit, delete, and mark-complete features.",
-  tech: ["HTML", "CSS", "JavaScript"],
-  emoji: "✅",
-  color: "#f59e0b",
-  link: "https://todo-app-sandy-two.vercel.app",
-  featured: false,
-},
+    id: 3,
+    title: "Developer Portfolio",
+    category: "Frontend",
+    desc: "A responsive personal portfolio showcasing projects, skills, resume, and interactive contact form built with sleek animations.",
+    tech: ["React", "CSS3", "JavaScript", "Framer Motion"],
+    emoji: "💼",
+    color: "#3b82f6",
+    link: "https://github.com/Digvijay-Bhota/developer-portfolio",
+    github: "https://github.com/Digvijay-Bhota/developer-portfolio",
+    featured: true,
+  },
   {
     id: 4,
-    title: 'Image-Based Auth System',
-    category: 'Security / Backend',
-    desc: 'A secure authentication system using image-based string generation and encryption techniques, providing a visually intuitive and highly secure user auth method.',
-    tech: ['Python', 'Cryptography', 'Flask', 'PIL', 'SQLite'],
-    emoji: '🔐',
-    color: '#ec4899',
-    link: '#',
+    title: "Todo App",
+    category: "Frontend",
+    desc: "Task management application with add, edit, delete, priority sorting, and local storage state persistence.",
+    tech: ["HTML5", "CSS3", "JavaScript"],
+    emoji: "✅",
+    color: "#f59e0b",
+    link: "https://todo-app-sandy-two.vercel.app",
+    github: "#",
     featured: false,
   },
   {
     id: 5,
-    title: 'Weather App',
-    category: 'Frontend / API',
-    desc: 'Real-time weather app with current conditions and forecasts using the OpenWeather API. Built with HTML, CSS, and JavaScript with full responsiveness.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'OpenWeather API'],
-    emoji: '🌦',
-    color: '#3b82f6',
-    link: '#',
+    title: "Image-Based Auth System",
+    category: "Security",
+    desc: "A secure authentication system using image-based string generation and encryption techniques for intuitive visual authentication.",
+    tech: ["Python", "Cryptography", "Flask", "PIL", "SQLite"],
+    emoji: "🔐",
+    color: "#ec4899",
+    link: "#",
+    github: "#",
     featured: false,
   },
   {
     id: 6,
-    title: 'FoodMunch App',
-    category: 'Frontend / UI',
-    desc: 'A mouth-watering food delivery UI with smooth animations, category filters, and a fully responsive design showcasing advanced CSS and React skills.',
-    tech: ['React', 'CSS3', 'JavaScript', 'Bootstrap'],
-    emoji: '🍔',
-    color: '#f97316',
-    link: '#',
+    title: "Weather App",
+    category: "Frontend",
+    desc: "Real-time weather application displaying current weather metrics and multi-day forecasts using OpenWeather API.",
+    tech: ["HTML5", "CSS3", "JavaScript", "OpenWeather API"],
+    emoji: "🌦️",
+    color: "#06b6d4",
+    link: "#",
+    github: "#",
+    featured: false,
+  },
+  {
+    id: 7,
+    title: "FoodMunch App",
+    category: "Frontend",
+    desc: "Food delivery interface featuring smooth interactions, category filters, and mobile-first responsive design.",
+    tech: ["React", "CSS3", "JavaScript", "Bootstrap"],
+    emoji: "🍔",
+    color: "#f97316",
+    link: "#",
+    github: "#",
     featured: false,
   },
 ];
 
-const FILTERS = ['All', 'AI / Full Stack', 'EdTech / Web App', 'Travel / Full Stack', 'Security / Backend', 'Frontend / API', 'Frontend / UI'];
+// Unified filter labels matching categories present in data
+const FILTERS = ['All', 'Full Stack', 'Frontend', 'Security'];
 
 export default function Projects() {
   const sectionRef = useRef(null);
   const [filter, setFilter] = useState('All');
   const [hovered, setHovered] = useState(null);
 
-  const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+  const filtered = filter === 'All' 
+    ? projects 
+    : projects.filter(p => p.category.toLowerCase().includes(filter.toLowerCase()));
 
+  // Trigger reveal effects when section enters viewport or filter changes
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll('.reveal').forEach((el, i) => {
-              setTimeout(() => el.classList.add('revealed'), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+    if (!sectionRef.current) return;
+
+    const revealElements = sectionRef.current.querySelectorAll('.reveal');
+    revealElements.forEach((el, i) => {
+      el.classList.remove('revealed');
+      setTimeout(() => el.classList.add('revealed'), i * 60);
+    });
+  }, [filter]);
 
   return (
     <section className="section projects-section" id="projects" ref={sectionRef}>
@@ -102,18 +117,19 @@ export default function Projects() {
         <div className="projects-header reveal">
           <p className="section-label">Portfolio</p>
           <h2 className="section-title">
-            Things I've <span className="gradient-text">Built</span>
+            Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="projects-subtitle">
-            A selection of projects that demonstrate my skills across the full stack.
+            A showcase of web applications, full-stack architectures, and frontend interfaces I've built.
           </p>
         </div>
 
-        {/* Filter pills */}
+        {/* Filter Pills */}
         <div className="filter-row reveal">
           {FILTERS.map(f => (
             <button
               key={f}
+              type="button"
               className={`filter-pill ${filter === f ? 'active' : ''}`}
               onClick={() => setFilter(f)}
             >
@@ -122,18 +138,19 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* Projects Grid */}
         <div className="projects-grid">
           {filtered.map((p, i) => (
             <div
               className={`project-card reveal ${p.featured ? 'featured' : ''}`}
               key={p.id}
-              style={{ '--card-color': p.color, animationDelay: `${i * 0.1}s` }}
+              style={{ '--card-color': p.color, animationDelay: `${i * 0.08}s` }}
               onMouseEnter={() => setHovered(p.id)}
               onMouseLeave={() => setHovered(null)}
             >
               {p.featured && <div className="featured-badge">Featured</div>}
 
-              <div className="project-emoji-wrap" style={{ background: `${p.color}15` }}>
+              <div className="project-emoji-wrap" style={{ backgroundColor: `${p.color}15` }}>
                 <span className="project-emoji">{p.emoji}</span>
               </div>
 
@@ -150,19 +167,39 @@ export default function Projects() {
               </div>
 
               <div className={`project-overlay ${hovered === p.id ? 'visible' : ''}`}>
-                <a href={p.link} className="project-link-btn">View Project →</a>
+                <div className="project-links">
+                  {p.link && p.link !== '#' && (
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                      Live Demo ↗
+                    </a>
+                  )}
+                  {p.github && p.github !== '#' && (
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="project-link-btn secondary">
+                      GitHub ↗
+                    </a>
+                  )}
+                </div>
               </div>
 
-              {/* Glow border on hover */}
-              <div className="card-glow" style={{ background: `radial-gradient(circle at center, ${p.color}20, transparent 70%)` }} />
+              {/* Radial glow background */}
+              <div 
+                className="card-glow" 
+                style={{ background: `radial-gradient(circle at center, ${p.color}25, transparent 70%)` }} 
+              />
             </div>
           ))}
         </div>
 
+        {/* Call To Action */}
         <div className="projects-cta reveal">
-          <p>Want to see more?</p>
-          <a href="https://github.com/Digvijay-Bhota" target="_blank" rel="noreferrer" className="btn-outline">
-            ⭐ View GitHub
+          <p>Interested in seeing more of my source code?</p>
+          <a 
+            href="https://github.com/Digvijay-Bhota" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-outline"
+          >
+            ⭐ Explore GitHub Profile
           </a>
         </div>
       </div>
