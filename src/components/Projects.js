@@ -3,23 +3,23 @@ import './Projects.css';
 
 const projects = [
   {
-    id: 1,
-    title: "DocuMind — AI Document Scanner",
-    category: "Full Stack",
-    desc: "Production-ready AI document scanner that securely uploads documents, extracts text with OCR, and generates AI-powered summaries using Gemini. Built with authentication, protected file access, PostgreSQL, and production security hardening.",
-    tech: [
-      "React",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "OCR",
-      "Gemini AI"
-    ],
-    emoji: "🤖",
-    color: "#6366f1",
-    link: "https://ai-doc-scanner-chi.vercel.app/",
-    github: "https://github.com/Digvijay-Bhota/ai-doc-scanner",
-    featured: true,
+  id: 1,
+  title: "DocuMind — AI Document Scanner",
+  category: "Full Stack",
+  desc: "A production-ready AI document processing platform that securely uploads documents, extracts text with OCR, and generates concise AI-powered summaries. Includes JWT authentication, protected file access, PostgreSQL persistence, and production-grade security controls.",
+  tech: [
+    "React",
+    "Node.js",
+    "Express.js",
+    "PostgreSQL",
+    "Tesseract OCR",
+    "Gemini AI"
+  ],
+  emoji: "🤖",
+  color: "#6366f1",
+  link: "https://ai-doc-scanner-chi.vercel.app/",
+  github: "https://github.com/Digvijay-Bhota/ai-doc-scanner",
+  featured: true,
   },
 
   {
