@@ -56,7 +56,6 @@ const projects = [
     tech: ["React", "CSS3", "JavaScript", "Framer Motion"],
     emoji: "💼",
     color: "#3b82f6",
-    link: "https://github.com/Digvijay-Bhota/developer-portfolio",
     github: "https://github.com/Digvijay-Bhota/developer-portfolio",
     featured: true,
   },
