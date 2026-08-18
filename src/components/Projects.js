@@ -4,6 +4,26 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
+    title: "DocuMind — AI Document Scanner",
+    category: "Full Stack",
+    desc: "Production-ready AI document scanner that securely uploads documents, extracts text with OCR, and generates AI-powered summaries using Gemini. Built with authentication, protected file access, PostgreSQL, and production security hardening.",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "OCR",
+      "Gemini AI"
+    ],
+    emoji: "🤖",
+    color: "#6366f1",
+    link: "https://ai-doc-scanner-chi.vercel.app/",
+    github: "https://github.com/Digvijay-Bhota/ai-doc-scanner",
+    featured: true,
+  },
+
+  {
+    id: 2,
     title: "Chanshal Camping & Trekking",
     category: "Full Stack",
     desc: "A full-stack camping and trekking booking platform with responsive UI, booking management, and modern React frontend.",
@@ -14,8 +34,9 @@ const projects = [
     github: "https://github.com/Digvijay-Bhota/chanshal-camping-and-trekking",
     featured: true,
   },
+
   {
-    id: 2,
+    id: 3,
     title: "ChopalOrchard e-commerce Web Application",
     category: "Full Stack",
     desc: "A modern dynamic web application featuring user authentication, real-time data processing, interactive dashboard analytics, and RESTful API integrations.",
@@ -26,8 +47,9 @@ const projects = [
     github: "https://github.com/Digvijay-Bhota/chopal-orchard-website-complete",
     featured: true,
   },
+
   {
-    id: 3,
+    id: 4,
     title: "Developer Portfolio",
     category: "Frontend",
     desc: "A responsive personal portfolio showcasing projects, skills, resume, and interactive contact form built with sleek animations.",
@@ -38,8 +60,9 @@ const projects = [
     github: "https://github.com/Digvijay-Bhota/developer-portfolio",
     featured: true,
   },
+
   {
-    id: 4,
+    id: 5,
     title: "Todo App",
     category: "Frontend",
     desc: "Task management application with add, edit, delete, priority sorting, and local storage state persistence.",
@@ -50,8 +73,9 @@ const projects = [
     github: "https://github.com/Digvijay-Bhota/todo-app",
     featured: false,
   },
+
   {
-    id: 5,
+    id: 6,
     title: "Image-Based Auth System",
     category: "Security",
     desc: "A secure authentication system using image-based string generation and encryption techniques for intuitive visual authentication.",
@@ -62,8 +86,9 @@ const projects = [
     github: "#",
     featured: false,
   },
+
   {
-    id: 6,
+    id: 7,
     title: "Weather App",
     category: "Frontend",
     desc: "Real-time weather application displaying current weather metrics and multi-day forecasts using OpenWeather API.",
@@ -74,8 +99,9 @@ const projects = [
     github: "#",
     featured: false,
   },
+
   {
-    id: 7,
+    id: 8,
     title: "FoodMunch App",
     category: "Frontend",
     desc: "Food delivery interface featuring smooth interactions, category filters, and mobile-first responsive design.",
