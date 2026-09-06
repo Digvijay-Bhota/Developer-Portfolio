@@ -39,6 +39,9 @@ export default function Hero() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    // Respect reduced-motion preference: skip the animation loop entirely
+    // rather than just shortening CSS transition durations.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = canvas.getContext('2d');
     let animId;
     let w, h;
@@ -182,7 +185,18 @@ export default function Hero() {
           </button>
         </div>
 
-        <div className="hero-scroll-hint" onClick={() => scrollToSection('about')}>
+        <div
+          className="hero-scroll-hint"
+          role="button"
+          tabIndex={0}
+          onClick={() => scrollToSection('about')}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              scrollToSection('about');
+            }
+          }}
+        >
           <div className="scroll-mouse">
             <div className="scroll-wheel" />
           </div>

@@ -100,7 +100,7 @@ export default function Skills() {
             </div>
 
             {/* DSA Trophy */}
-            <div className="dsa-card reveal">
+            <div className="dsa-card card reveal">
               <div className="dsa-icon">🏆</div>
               <div>
                 <h4>Competitive Programming</h4>

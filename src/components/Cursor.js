@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Cursor.css';
 
 export default function Cursor() {
@@ -7,8 +7,16 @@ export default function Cursor() {
   const pos = useRef({ x: 0, y: 0 });
   const ringPos = useRef({ x: 0, y: 0 });
   const rafRef = useRef(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    // Skip entirely on touch devices, and for anyone who prefers reduced motion -
+    // no listeners, no RAF loop, nothing running in the background either way.
+    const hoverCapable = window.matchMedia('(hover: hover)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!hoverCapable || reducedMotion) return;
+    setEnabled(true);
+
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
       if (dotRef.current) {
@@ -28,31 +36,36 @@ export default function Cursor() {
       rafRef.current = requestAnimationFrame(animate);
     };
 
-    const onEnterLink = () => {
-      dotRef.current?.classList.add('cursor-hover');
-      ringRef.current?.classList.add('cursor-hover');
+    // Event delegation instead of querySelectorAll-at-mount: this correctly
+    // catches cards that are added/removed later (e.g. the Projects filter
+    // re-rendering its grid), not just whatever existed when Cursor first mounted.
+    const onOver = (e) => {
+      if (e.target.closest && e.target.closest('a, button, .card')) {
+        dotRef.current?.classList.add('cursor-hover');
+        ringRef.current?.classList.add('cursor-hover');
+      }
     };
-    const onLeaveLink = () => {
-      dotRef.current?.classList.remove('cursor-hover');
-      ringRef.current?.classList.remove('cursor-hover');
+    const onOut = (e) => {
+      if (e.target.closest && e.target.closest('a, button, .card')) {
+        dotRef.current?.classList.remove('cursor-hover');
+        ringRef.current?.classList.remove('cursor-hover');
+      }
     };
 
     window.addEventListener('mousemove', onMove);
-    document.querySelectorAll('a, button, .card').forEach(el => {
-      el.addEventListener('mouseenter', onEnterLink);
-      el.addEventListener('mouseleave', onLeaveLink);
-    });
-
+    document.addEventListener('mouseover', onOver);
+    document.addEventListener('mouseout', onOut);
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseover', onOver);
+      document.removeEventListener('mouseout', onOut);
       cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  // Hide on touch devices
-  if (window.matchMedia('(hover: none)').matches) return null;
+  if (!enabled) return null;
 
   return (
     <>

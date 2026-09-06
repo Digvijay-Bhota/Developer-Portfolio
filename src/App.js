@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -6,25 +7,19 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ProjectDetail from './components/ProjectDetail';
 import Cursor from './components/Cursor';
-import Loader from './components/Loader';
+import Loader, { LOADER_DURATION_MS } from './components/Loader';
 import './App.css';
 
-function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loader />;
-
+// Homepage component (all sections on one page)
+function HomePage() {
   return (
-    <div className="App">
+    <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Cursor />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />
@@ -32,7 +27,52 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </div>
+    </>
+  );
+}
+
+// Layout wrapper for pages that need the header/footer structure
+function PageLayout({ children }) {
+  return (
+    <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <Cursor />
+      <Navbar />
+      <main id="main-content">
+        {children}
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+// Main App component with routing
+function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), LOADER_DURATION_MS);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route 
+            path="/project/:slug" 
+            element={
+              <PageLayout>
+                <ProjectDetail />
+              </PageLayout>
+            } 
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

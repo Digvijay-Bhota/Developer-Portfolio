@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const socials = [
@@ -37,11 +38,27 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    // Simulated send (replace with EmailJS or your API)
-    await new Promise(r => setTimeout(r, 1600));
-    setStatus('sent');
-    setForm({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setStatus('idle'), 4000);
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS send failed:', err);
+      setStatus('error');
+    } finally {
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -60,21 +77,21 @@ export default function Contact() {
         <div className="contact-grid">
           {/* Left: Info */}
           <div className="contact-info reveal-left">
-            <div className="info-card">
+            <div className="info-card card">
               <div className="info-icon">📧</div>
               <div>
                 <h4>Email</h4>
                 <a href="mailto:digvijaybhota777@gmail.com">digvijaybhota777@gmail.com</a>
               </div>
             </div>
-            <div className="info-card">
+            <div className="info-card card">
               <div className="info-icon">📍</div>
               <div>
                 <h4>Location</h4>
                 <p>Mohali, Punjab, India</p>
               </div>
             </div>
-            <div className="info-card">
+            <div className="info-card card">
               <div className="info-icon">⏰</div>
               <div>
                 <h4>Availability</h4>
@@ -172,6 +189,13 @@ export default function Contact() {
               {status === 'sent' && (
                 <p className="form-success">
                   🎉 Thanks! I'll get back to you within 24 hours.
+                </p>
+              )}
+
+              {status === 'error' && (
+                <p className="form-error">
+                  Something went wrong — please email me directly at{' '}
+                  <a href="mailto:digvijaybhota777@gmail.com">digvijaybhota777@gmail.com</a>.
                 </p>
               )}
             </form>

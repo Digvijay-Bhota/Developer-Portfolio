@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 
 const projects = [
   {
     id: 1,
     title: "DocuMind — AI Document Scanner",
+    slug: "documind-ai-scanner",
     category: "Full Stack",
     desc: "A production-ready AI document processing platform that securely uploads documents, extracts text with OCR, and generates concise AI-powered summaries. Includes JWT authentication, protected file access, PostgreSQL persistence, and production-grade security controls.",
     tech: [
@@ -24,6 +26,7 @@ const projects = [
   {
     id: 2,
     title: "Chanshal Camping & Trekking",
+    slug: "chanshal-camping",
     category: "Full Stack",
     desc: "A full-stack outdoor travel platform designed for discovering camping and trekking experiences, with responsive interfaces, booking workflows, and a modern React-based user experience.",
     tech: [
@@ -42,6 +45,7 @@ const projects = [
   {
     id: 3,
     title: "ChopalOrchard — E-commerce Platform",
+    slug: "chopal-orchards",
     category: "Full Stack",
     desc: "A modern full-stack e-commerce application featuring user authentication, dynamic data handling, interactive dashboards, and RESTful API integration for a responsive shopping experience.",
     tech: [
@@ -208,7 +212,7 @@ export default function Projects() {
         <div className="projects-grid">
           {filtered.map((p, i) => (
             <div
-              className={`project-card reveal ${
+              className={`project-card card reveal ${
                 p.featured ? 'featured' : ''
               }`}
               key={p.id}
@@ -262,6 +266,15 @@ export default function Projects() {
                 }`}
               >
                 <div className="project-links">
+                  {p.slug && (
+                    <Link
+                      to={`/project/${p.slug}`}
+                      className="project-link-btn"
+                    >
+                      Read Case Study →
+                    </Link>
+                  )}
+
                   {p.link && p.link !== '#' && (
                     <a
                       href={p.link}

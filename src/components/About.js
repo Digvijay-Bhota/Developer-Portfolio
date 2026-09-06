@@ -39,7 +39,11 @@ export default function About() {
               <div className="avatar-ring" />
               <div className="avatar-ring ring-2" />
               <div className="avatar-placeholder">
-                <span>DB</span>
+                <img
+                  src="/Digvijay_Bhota_img.jpeg"
+                  alt="Digvijay Bhota"
+                  className="avatar-photo"
+                />
               </div>
               {/* Floating badges */}
               <div className="float-badge badge-react">⚛ React</div>
@@ -49,7 +53,7 @@ export default function About() {
 
             <div className="about-highlights">
               {highlights.map((h) => (
-                <div className="highlight-card" key={h.label}>
+                <div className="highlight-card card" key={h.label}>
                   <span className="h-icon">{h.icon}</span>
                   <div>
                     <span className="h-value">{h.value}</span>

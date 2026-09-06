@@ -9,26 +9,56 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'contact'];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Scroll-spy, throttled to one measurement per animation frame instead of
+  // running 5 getBoundingClientRect() reads on every raw scroll event.
   useEffect(() => {
-    const onScroll = () => {
+    let ticking = false;
+
+    const measure = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(SECTION_IDS[i]);
         if (el && el.getBoundingClientRect().top < 120) {
-          setActive(sections[i]);
+          setActive(SECTION_IDS[i]);
           break;
         }
       }
+      ticking = false;
     };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(measure);
+      }
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Lock background scroll and allow Escape to close the mobile menu.
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [menuOpen]);
 
   const handleNav = (href) => {
     setMenuOpen(false);
@@ -58,17 +88,21 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-  <a
-    className="nav-cta"
-    href="mailto:digvijaybhota777@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Digvijay,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
-  >
-    Hire Me
-  </a>
-</li>
-
+            <a
+              className="nav-cta"
+              href="mailto:digvijaybhota777@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Digvijay,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
+            >
+              Hire Me
+            </a>
+          </li>
         </ul>
 
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
           <span className={menuOpen ? 'bar open' : 'bar'} />
           <span className={menuOpen ? 'bar open' : 'bar'} />
           <span className={menuOpen ? 'bar open' : 'bar'} />
