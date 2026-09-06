@@ -55,9 +55,9 @@ export const projectsData = [
     github: 'https://github.com/Digvijay-Bhota/ai-chat-assistant',
     tech: ['React', 'Socket.io', 'Markdown-It', 'CSS-in-JS'],
     
-    problem: `Building chat UIs with an AI backend is tricky: you can\'t wait for the full response before rendering (users see blank screens), and messages with code/tables need proper formatting. Most naive implementations feel janky or slow.`,
+    problem: `Building chat UIs with an AI backend is tricky: you can't wait for the full response before rendering (users see blank screens), and messages with code/tables need proper formatting. Most naive implementations feel janky or slow.`,
     
-    approach: `I implemented Server-Sent Events (SSE) to stream responses word-by-word directly into React state. A custom Markdown parser renders code blocks with syntax highlighting, tables, and LaTeX math. Auto-scroll only kicks in if the user hasn\'t scrolled up (respects the user\'s intent).`,
+    approach: `I implemented Server-Sent Events (SSE) to stream responses word-by-word directly into React state. A custom Markdown parser renders code blocks with syntax highlighting, tables, and LaTeX math. Auto-scroll only kicks in if the user hasn't scrolled up (respects the user's intent).`,
     
     outcome: `The chat feels instant and responsive, even on slow networks. Users can start reading mid-response. Code blocks are copy-pasteable and syntax-highlighted. Zero layout shift — the biggest UX sin in chat UIs.`,
     
