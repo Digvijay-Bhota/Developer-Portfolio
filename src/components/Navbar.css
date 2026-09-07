@@ -138,3 +138,24 @@
 
   .nav-link { font-size: 1.1rem; }
 }
+
+.nav-cmd-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.nav-cmd-toggle:hover {
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--text-primary);
+  border-color: rgba(124, 58, 237, 0.4);
+}

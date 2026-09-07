@@ -2,7 +2,7 @@
   position: fixed;
   width: 8px;
   height: 8px;
-  background: #7c3aed;
+  background: var(--accent-violet);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
@@ -15,7 +15,7 @@
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 1.5px solid rgba(124, 58, 237, 0.6);
+  border: 1.5px solid var(--border-strong);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -26,7 +26,7 @@
 .cursor-dot.cursor-hover {
   width: 12px;
   height: 12px;
-  background: #22d3ee;
+  background: var(--accent-cyan);
 }
 
 .cursor-ring.cursor-hover {

@@ -2,21 +2,39 @@
    DESIGN TOKENS
    ============================================ */
 :root {
-  --bg-primary: #060612;
-  --bg-secondary: #0d0d24;
-  --bg-card: #11112a;
-  --accent-violet: #7c3aed;
-  --accent-purple: #a855f7;
+  /* Backgrounds */
+  --bg-primary: #05050f;
+  --bg-secondary: #0a0a1a;
+  --bg-card: rgba(15, 15, 30, 0.6);
+  --bg-elevated: rgba(25, 25, 45, 0.8);
+  
+  /* Accents */
+  --accent-violet: #8b5cf6;
+  --accent-purple: #c084fc;
   --accent-cyan: #22d3ee;
-  --accent-pink: #ec4899;
-  --text-primary: #e8e8f0;
-  --text-muted: #8888a8;
-  --border: rgba(124, 58, 237, 0.2);
-  --glow: 0 0 40px rgba(124, 58, 237, 0.3);
+  --accent-pink: #f472b6;
+  
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  
+  /* Borders & UI */
+  --border-light: rgba(139, 92, 246, 0.15);
+  --border-strong: rgba(139, 92, 246, 0.3);
+  --glow-subtle: 0 0 20px rgba(139, 92, 246, 0.15);
+  --glow-strong: 0 0 40px rgba(34, 211, 238, 0.2);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4);
+  
+  /* Typography */
   --font-display: 'Syne', sans-serif;
   --font-body: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Animation */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ============================================

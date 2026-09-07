@@ -154,7 +154,7 @@ const FILTERS = ['All', 'Full Stack', 'Frontend', 'Security'];
 export default function Projects() {
   const sectionRef = useRef(null);
   const [filter, setFilter] = useState('All');
-  const [hovered, setHovered] = useState(null);
+  
 
   const filtered = filter === 'All'
     ? projects
@@ -220,8 +220,8 @@ export default function Projects() {
                 '--card-color': p.color,
                 animationDelay: `${i * 0.08}s`
               }}
-              onMouseEnter={() => setHovered(p.id)}
-              onMouseLeave={() => setHovered(null)}
+              
+              
             >
               {p.featured && (
                 <div className="featured-badge">
@@ -260,43 +260,37 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div
-                className={`project-overlay ${
-                  hovered === p.id ? 'visible' : ''
-                }`}
-              >
-                <div className="project-links">
-                  {p.slug && (
-                    <Link
-                      to={`/project/${p.slug}`}
-                      className="project-link-btn"
-                    >
-                      Read Case Study →
-                    </Link>
-                  )}
+              <div className="project-links">
+                {p.slug && (
+                  <Link
+                    to={`/project/${p.slug}`}
+                    className="project-link-btn"
+                  >
+                    Case Study →
+                  </Link>
+                )}
 
-                  {p.link && p.link !== '#' && (
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link-btn"
-                    >
-                      Live Demo ↗
-                    </a>
-                  )}
+                {p.link && p.link !== '#' && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-btn-secondary"
+                  >
+                    Live Demo ↗
+                  </a>
+                )}
 
-                  {p.github && p.github !== '#' && (
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link-btn secondary"
-                    >
-                      GitHub ↗
-                    </a>
-                  )}
-                </div>
+                {p.github && p.github !== '#' && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link-btn-secondary"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
               </div>
 
               {/* Radial glow background */}

@@ -177,6 +177,7 @@ export default function Contact() {
                 type="submit"
                 className={`btn-primary form-submit ${status}`}
                 disabled={status === 'sending'}
+                aria-live="polite"
               >
                 <span>
                   {status === 'idle' && '✉ Send Message'}
@@ -187,13 +188,13 @@ export default function Contact() {
               </button>
 
               {status === 'sent' && (
-                <p className="form-success">
+                <p className="form-success" role="alert">
                   🎉 Thanks! I'll get back to you within 24 hours.
                 </p>
               )}
 
               {status === 'error' && (
-                <p className="form-error">
+                <p className="form-error" role="alert">
                   Something went wrong — please email me directly at{' '}
                   <a href="mailto:digvijaybhota777@gmail.com">digvijaybhota777@gmail.com</a>.
                 </p>

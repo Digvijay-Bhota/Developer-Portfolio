@@ -88,6 +88,16 @@ export default function Navbar() {
             </li>
           ))}
           <li>
+            <button
+              className="nav-cmd-toggle"
+              onClick={() => window.dispatchEvent(new Event('openCmd'))}
+              title="Command Palette (Cmd+K)"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>⌘K</span>
+            </button>
+          </li>
+          <li>
             <a
               className="nav-cta"
               href="mailto:digvijaybhota777@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Digvijay,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."

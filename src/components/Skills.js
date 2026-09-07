@@ -1,41 +1,39 @@
 import React, { useEffect, useRef } from 'react';
 import './Skills.css';
 
-const skills = [
-  { name: 'Python', level: 90, color: '#3776ab', icon: '🐍' },
-  { name: 'React JS', level: 88, color: '#61dafb', icon: '⚛' },
-  { name: 'JavaScript', level: 85, color: '#f7df1e', icon: '⚡' },
-  { name: 'HTML5', level: 95, color: '#e34f26', icon: '🏗' },
-  { name: 'CSS3', level: 92, color: '#264de4', icon: '🎨' },
-  { name: 'GitHub', level: 80, color: '#000000', icon: '🐙' },
-  { name: 'Node.js', level: 75, color: '#339933', icon: '🟢' },
-  { name: 'MySQL', level: 78, color: '#4479a1', icon: '🗄' },
-];
-
-const tools = [
-  'Git', 'GitHub', 'VS Code', 'Figma', 'Docker', 'Bootstrap',
-  'Django', 'REST APIs', 'Responsive Design', 'Problem Solving'
+const skillGroups = [
+  {
+    title: 'Frontend Development',
+    icon: '💻',
+    skills: ['React', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'Tailwind CSS', 'Bootstrap', 'Framer Motion']
+  },
+  {
+    title: 'Backend Engineering',
+    icon: '⚙️',
+    skills: ['Node.js', 'Express.js', 'Python', 'Django', 'RESTful APIs', 'JWT Auth']
+  },
+  {
+    title: 'Database & Cloud',
+    icon: '🗄️',
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'AWS S3', 'SQLite']
+  },
+  {
+    title: 'Tools & DevOps',
+    icon: '🛠️',
+    skills: ['Git & GitHub', 'Docker', 'VS Code', 'Figma', 'Tesseract OCR', 'Gemini AI']
+  }
 ];
 
 export default function Skills() {
   const sectionRef = useRef(null);
-  const barsRef = useRef([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            e.target.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el, i) => {
+            e.target.querySelectorAll('.reveal').forEach((el, i) => {
               setTimeout(() => el.classList.add('revealed'), i * 80);
-            });
-            // Animate skill bars
-            barsRef.current.forEach((bar, i) => {
-              if (bar) {
-                setTimeout(() => {
-                  bar.style.width = bar.dataset.level + '%';
-                }, 200 + i * 80);
-              }
             });
           }
         });
@@ -59,55 +57,28 @@ export default function Skills() {
           </p>
         </div>
 
-        <div className="skills-grid">
-          {/* Skill bars */}
-          <div className="skills-bars reveal-left">
-            <h3 className="skills-sub-title">Core Skills</h3>
-            {skills.map((s, i) => (
-              <div className="skill-item" key={s.name}>
-                <div className="skill-meta">
-                  <span className="skill-name">
-                    <span className="skill-icon">{s.icon}</span>
-                    {s.name}
-                  </span>
-                  <span className="skill-level">{s.level}%</span>
-                </div>
-                <div className="skill-bar-bg">
-                  <div
-                    className="skill-bar-fill"
-                    ref={el => barsRef.current[i] = el}
-                    data-level={s.level}
-                    style={{ background: `linear-gradient(90deg, #7c3aed, ${s.color})`, width: 0 }}
-                  />
-                </div>
+        <div className="bento-grid">
+          {skillGroups.map((group, index) => (
+            <div className={`bento-card reveal bento-delay-${index}`} key={group.title}>
+              <div className="bento-icon-wrap">{group.icon}</div>
+              <h3 className="bento-title">{group.title}</h3>
+              <div className="bento-skills">
+                {group.skills.map(skill => (
+                  <span className="bento-skill-tag" key={skill}>{skill}</span>
+                ))}
               </div>
-            ))}
-          </div>
-
-          {/* Tools & Technologies */}
-          <div className="skills-tools reveal-right">
-            <h3 className="skills-sub-title">Tools & Technologies</h3>
-            <div className="tools-cloud">
-              {tools.map((t, i) => (
-                <span
-                  className="tool-chip"
-                  key={t}
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  {t}
-                </span>
-              ))}
             </div>
+          ))}
 
-            {/* DSA Trophy */}
-            <div className="dsa-card card reveal">
-              <div className="dsa-icon">🏆</div>
+          <div className="bento-card dsa-bento reveal bento-delay-4">
+            <div className="dsa-content">
+              <div className="bento-icon-wrap">🏆</div>
               <div>
-                <h4>Competitive Programming</h4>
-                <p>Solved <strong>70+</strong> DSA problems across LeetCode, GFG & HackerRank</p>
+                <h3 className="bento-title">Competitive Programming</h3>
+                <p className="bento-desc">Solved <strong>70+</strong> DSA problems across platforms.</p>
                 <div className="dsa-badges">
-                  <span> 148 – TechGig 2022</span>
-                  <span> 35 – TG3 Coding 2022</span>
+                  <span>TechGig 2022: Rank 148</span>
+                  <span>TG3 Coding: Rank 35</span>
                 </div>
               </div>
             </div>

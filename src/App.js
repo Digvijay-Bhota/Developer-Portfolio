@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import Cursor from './components/Cursor';
 import Loader, { LOADER_DURATION_MS } from './components/Loader';
+import CommandPalette from './components/CommandPalette';
 import './App.css';
 
 // Homepage component (all sections on one page)
@@ -49,6 +50,7 @@ function PageLayout({ children }) {
 // Main App component with routing
 function App() {
   const [loading, setLoading] = useState(true);
+  const [cmdOpen, setCmdOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), LOADER_DURATION_MS);
@@ -60,6 +62,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <CommandPalette open={cmdOpen} setOpen={setCmdOpen} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route 
