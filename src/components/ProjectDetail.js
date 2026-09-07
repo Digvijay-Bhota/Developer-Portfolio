@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProjectBySlug } from '../data/projects';
+import MetricGrid from './MetricGrid';
+import DecisionCard from './DecisionCard';
 import './ProjectDetail.css';
 
 export default function ProjectDetail() {
@@ -71,46 +73,57 @@ export default function ProjectDetail() {
 
       <main className="project-detail-content">
         <div className="container">
+          {/* Outcomes / Metrics */}
+          {(project.outcome || (project.metrics && project.metrics.length > 0)) && (
+            <section className="detail-section outcome-section">
+              <h2 className="section-title">The Outcome</h2>
+              {project.outcome && <p className="section-text">{project.outcome}</p>}
+              <MetricGrid metrics={project.metrics} />
+            </section>
+          )}
+
           {/* Problem Section */}
-          <section className="detail-section">
-            <h2 className="section-title">The Problem</h2>
-            <p className="section-text">{project.problem}</p>
-          </section>
+          {project.problem && (
+            <section className="detail-section problem-section">
+              <h2 className="section-title">The Problem</h2>
+              <div className="problem-card">
+                <p className="section-text">{project.problem}</p>
+              </div>
+            </section>
+          )}
 
           {/* Approach Section */}
-          <section className="detail-section">
-            <h2 className="section-title">My Approach</h2>
-            <p className="section-text">{project.approach}</p>
-          </section>
-
-          {/* Outcome Section */}
-          <section className="detail-section">
-            <h2 className="section-title">The Outcome</h2>
-            <p className="section-text">{project.outcome}</p>
-          </section>
+          {project.approach && (
+            <section className="detail-section approach-section">
+              <h2 className="section-title">Engineering Approach</h2>
+              <div className="approach-content">
+                <p className="section-text">{project.approach}</p>
+              </div>
+            </section>
+          )}
 
           {/* Key Decisions */}
-          {project.keyDecisions.length > 0 && (
+          {project.keyDecisions && project.keyDecisions.length > 0 && (
             <section className="detail-section">
-              <h2 className="section-title">Key Decisions</h2>
-              <ul className="decisions-list">
+              <h2 className="section-title">Key Technical Decisions</h2>
+              <div className="decisions-grid">
                 {project.keyDecisions.map((decision, i) => (
-                  <li key={i} className="decision-item">
-                    {decision}
-                  </li>
+                  <DecisionCard key={i} index={i} decision={decision} />
                 ))}
-              </ul>
+              </div>
             </section>
           )}
 
           {/* Challenges Solved */}
-          {project.challenges.length > 0 && (
+          {project.challenges && project.challenges.length > 0 && (
             <section className="detail-section">
-              <h2 className="section-title">Challenges & Solutions</h2>
+              <h2 className="section-title">Challenges Overcome</h2>
               <div className="challenges-grid">
                 {project.challenges.map((ch, i) => (
                   <div key={i} className="challenge-card card">
+                    <div className="challenge-header">CHALLENGE</div>
                     <h3 className="challenge-label">{ch.label}</h3>
+                    <div className="challenge-header solution-header">SOLUTION</div>
                     <p className="challenge-solution">{ch.solution}</p>
                   </div>
                 ))}
@@ -118,28 +131,15 @@ export default function ProjectDetail() {
             </section>
           )}
 
-          {/* Metrics */}
-          {project.metrics.length > 0 && (
-            <section className="detail-section">
-              <h2 className="section-title">Results & Metrics</h2>
-              <div className="metrics-grid">
-                {project.metrics.map((metric, i) => (
-                  <div key={i} className="metric-card card">
-                    <div className="metric-number">{metric.label}</div>
-                    <div className="metric-description">{metric.value}</div>
-                  </div>
-                ))}
-              </div>
+          {/* Lesson Learned */}
+          {project.lessonLearned && (
+            <section className="detail-section detail-section-last">
+              <h2 className="section-title">Retrospective</h2>
+              <blockquote className="lesson-blockquote">
+                “{project.lessonLearned}”
+              </blockquote>
             </section>
           )}
-
-          {/* Lesson Learned */}
-          <section className="detail-section detail-section-last">
-            <h2 className="section-title">What I Learned</h2>
-            <blockquote className="lesson-blockquote">
-              "{project.lessonLearned}"
-            </blockquote>
-          </section>
         </div>
       </main>
 

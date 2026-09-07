@@ -440,3 +440,53 @@
     width: 100%;
   }
 }
+
+/* New Layout additions */
+.problem-card {
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-pink);
+}
+
+.approach-content {
+  padding: 1.5rem 0;
+}
+
+.outcome-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Challenges Redesign */
+.challenge-header {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.solution-header {
+  margin-top: 1.5rem;
+  color: var(--accent-cyan);
+}
+
+.decisions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

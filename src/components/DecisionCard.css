@@ -1,0 +1,47 @@
+.decision-card {
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-left: 4px solid var(--accent-violet);
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  transition: all 0.3s;
+}
+
+.decision-card:hover {
+  background: rgba(139, 92, 246, 0.05);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateX(4px);
+}
+
+.decision-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.decision-index {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.decision-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.decision-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+h3.decision-label {
+  margin: 0;
+  font-weight: 600;
+}

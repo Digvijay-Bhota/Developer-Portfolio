@@ -46,6 +46,7 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-auto-flow: dense;
   gap: 1.5rem;
 }
 
@@ -84,7 +85,7 @@
 .project-card:hover::before { opacity: 1; }
 
 .project-card.featured {
-  grid-column: span 1;
+  grid-column: span 2;
   border-color: rgba(124, 58, 237, 0.2);
 }
 
@@ -230,4 +231,10 @@
   .projects-grid { grid-template-columns: 1fr; }
   .filter-row { gap: 0.4rem; }
   .filter-pill { font-size: 0.72rem; padding: 0.35rem 0.75rem; }
+}
+
+@media (max-width: 1024px) {
+  .project-card.featured {
+    grid-column: span 1;
+  }
 }
