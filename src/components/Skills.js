@@ -5,22 +5,22 @@ const skillGroups = [
   {
     title: 'Frontend Development',
     icon: '💻',
-    skills: ['React', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'Tailwind CSS', 'Bootstrap', 'Framer Motion']
+    skills: ['React', 'Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vanilla JS']
   },
   {
     title: 'Backend Engineering',
     icon: '⚙️',
-    skills: ['Node.js', 'Express.js', 'Python', 'Django', 'RESTful APIs', 'JWT Auth']
+    skills: ['Node.js', 'Express', 'Python', 'FastAPI', 'Cloudflare Workers', 'Hono']
   },
   {
     title: 'Database & Cloud',
     icon: '🗄️',
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'AWS S3', 'SQLite']
+    skills: ['PostgreSQL', 'Prisma', 'Redis', 'Cloudflare D1', 'KV / Supabase']
   },
   {
     title: 'Tools & DevOps',
     icon: '🛠️',
-    skills: ['Git & GitHub', 'Docker', 'VS Code', 'Figma', 'Tesseract OCR', 'Gemini AI']
+    skills: ['Git & GitHub Actions', 'Docker Compose', 'Pytest / Vitest', 'Razorpay', 'Gemini AI', 'Tesseract OCR']
   }
 ];
 

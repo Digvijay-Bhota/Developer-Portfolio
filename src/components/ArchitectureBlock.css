@@ -1,0 +1,43 @@
+.architecture-block {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.architecture-diagram-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.architecture-diagram-content pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.architecture-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(124, 58, 237, 0.02),
+    rgba(124, 58, 237, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border: 1px dashed var(--border-strong);
+  border-radius: 12px;
+}
+
+.placeholder-text {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getProjectBySlug } from '../data/projects';
 import MetricGrid from './MetricGrid';
 import DecisionCard from './DecisionCard';
+import ArchitectureBlock from './ArchitectureBlock';
 import './ProjectDetail.css';
 
 export default function ProjectDetail() {
@@ -37,24 +38,20 @@ export default function ProjectDetail() {
       <header className="project-detail-header">
         <div className="container">
           <div className="project-detail-hero">
-            <img src={project.image} alt={project.title} className="project-detail-image" />
+            {project.primaryImage ? (
+              <img src={project.primaryImage} alt={`${project.title} screenshot`} className="project-detail-image" />
+            ) : (
+              <div className="project-detail-image-placeholder" style={{ backgroundColor: `${project.color}15`, border: `1px solid ${project.color}30` }}>
+                <span className="project-emoji-large">{project.emoji}</span>
+              </div>
+            )}
+            
             <div className="project-detail-intro">
-              <span className="project-category">{project.category}</span>
+              <span className="project-category font-mono">
+                {project.category} • {project.status}
+              </span>
               <h1 className="project-detail-title">{project.title}</h1>
               <p className="project-detail-summary">{project.summary}</p>
-
-              <div className="project-detail-links">
-                {project.link !== '#' && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="link-btn">
-                    Visit Site →
-                  </a>
-                )}
-                {project.github !== '#' && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-btn secondary">
-                    View Code →
-                  </a>
-                )}
-              </div>
 
               <div className="project-tech">
                 <strong>Tech Stack:</strong>
@@ -86,7 +83,7 @@ export default function ProjectDetail() {
           {project.problem && (
             <section className="detail-section problem-section">
               <h2 className="section-title">The Problem</h2>
-              <div className="problem-card">
+              <div className="problem-card" style={{ '--accent-color': project.color }}>
                 <p className="section-text">{project.problem}</p>
               </div>
             </section>
@@ -101,6 +98,12 @@ export default function ProjectDetail() {
               </div>
             </section>
           )}
+
+          {/* Architecture Visual */}
+          <section className="detail-section">
+            <h2 className="section-title">Architecture</h2>
+            <ArchitectureBlock diagramDef={project.architectureDiagramDef} />
+          </section>
 
           {/* Key Decisions */}
           {project.keyDecisions && project.keyDecisions.length > 0 && (
@@ -131,9 +134,21 @@ export default function ProjectDetail() {
             </section>
           )}
 
+          {/* Secondary Visuals / Gallery */}
+          {project.secondaryImages && project.secondaryImages.length > 0 && (
+            <section className="detail-section">
+              <h2 className="section-title">Gallery</h2>
+              <div className="secondary-gallery">
+                {project.secondaryImages.map((img, i) => (
+                  <img key={i} src={img} alt={`Screenshot ${i + 1} for ${project.title}`} className="gallery-image" loading="lazy" decoding="async" />
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Lesson Learned */}
           {project.lessonLearned && (
-            <section className="detail-section detail-section-last">
+            <section className="detail-section">
               <h2 className="section-title">Retrospective</h2>
               <blockquote className="lesson-blockquote">
                 “{project.lessonLearned}”
@@ -143,13 +158,21 @@ export default function ProjectDetail() {
         </div>
       </main>
 
-      {/* CTA to next section */}
-      <section className="project-detail-cta">
+      {/* GitHub / Live Project */}
+      <section className="project-detail-cta detail-section-last">
         <div className="container">
-          <h2>Want to work together?</h2>
-          <p>Let's build something great. Reach out via email or connect on LinkedIn.</p>
+          <h2 className="cta-title">Explore the Project</h2>
           <div className="cta-buttons">
-            <a href="#contact" className="btn-primary">Get In Touch</a>
+            {project.link && project.link !== '#' && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Live Demo ↗
+              </a>
+            )}
+            {project.github && project.github !== '#' && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                GitHub Repository ↗
+              </a>
+            )}
           </div>
         </div>
       </section>

@@ -3,9 +3,9 @@ import './Hero.css';
 
 const ROLES = [
   'Full Stack Developer',
-  'React Specialist',
-  'Python Engineer',
-  'UI/UX Enthusiast',
+  'Product Engineer',
+  'AI Systems Builder',
+  'Backend Engineer',
 ];
 
 export default function Hero() {
@@ -147,9 +147,9 @@ export default function Hero() {
         </h2>
 
         <p className="hero-desc">
-          I craft <strong>high-performance web applications</strong> with clean code
-          and beautiful interfaces. Skilled in javascript, Python, React, and full-stack development
-          — I turn ideas into digital experiences.
+          I build <strong>real software products and engineering systems</strong>.
+          Skilled in React, Node.js, Python, and cloud infrastructure — I turn
+          complex problems into scalable digital experiences.
         </p>
 
         <div className="hero-stats">
@@ -213,10 +213,10 @@ export default function Hero() {
         </div>
         <pre className="code-content">
 {`const digvijay = {
-  role: "Full Stack Dev",
-  skills: ["React", "Python", 
-           "Node.js", "Flask"],
-  passion: "Building great UX",
+  role: "Product Engineer",
+  focus: ["AI Systems", "Full-Stack", 
+          "Backend", "Cloud Infra"],
+  passion: "Robust Architecture",
   available: true 🚀
 }`}
         </pre>
