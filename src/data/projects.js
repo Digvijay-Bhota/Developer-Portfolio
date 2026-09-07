@@ -13,6 +13,8 @@ export const projectsData = [
     link: 'https://chopalorchards.com',
     github: 'https://github.com/Digvijay-Bhota/chopal-orchards',
     tech: ['Next.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS', 'AWS S3'],
+    emoji: '🛒',
+    color: '#8b5cf6',
     
     // Deep-dive content for case study page
     problem: `Chopal Orchards, a small agricultural business, needed a modern e-commerce platform to sell fresh produce directly to customers. They were losing sales through outdated systems and wanted a fast, mobile-first shopping experience.`,
@@ -54,6 +56,8 @@ export const projectsData = [
     link: 'https://ai-chat-demo.netlify.app',
     github: 'https://github.com/Digvijay-Bhota/ai-chat-assistant',
     tech: ['React', 'Socket.io', 'Markdown-It', 'CSS-in-JS'],
+    emoji: '🤖',
+    color: '#6366f1',
     
     problem: `Building chat UIs with an AI backend is tricky: you can't wait for the full response before rendering (users see blank screens), and messages with code/tables need proper formatting. Most naive implementations feel janky or slow.`,
     
@@ -92,6 +96,8 @@ export const projectsData = [
     link: 'https://task-board.netlify.app',
     github: 'https://github.com/Digvijay-Bhota/task-management',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io'],
+    emoji: '✅',
+    color: '#f59e0b',
     
     problem: `Teams needed a simple way to track work without overkill project management software. They wanted Trello-like drag-drop, real-time updates, and an API they could integrate with their existing tools.`,
     
@@ -130,6 +136,8 @@ export const projectsData = [
     link: '#',
     github: '#',
     tech: ['React', 'OpenWeatherMap API', 'Geolocation API'],
+    emoji: '🌦️',
+    color: '#06b6d4',
     
     problem: 'Basic weather widget to practice API calls and real-time data.',
     approach: 'Used OpenWeatherMap free tier, Geolocation API to find the user, caching with localStorage.',
@@ -151,6 +159,8 @@ export const projectsData = [
     link: '#',
     github: '#',
     tech: ['React', 'Express', 'PostgreSQL'],
+    emoji: '🍔',
+    color: '#f97316',
     
     problem: 'Practice project for full-stack fundamentals.',
     approach: 'CRUD operations for menu items and orders, RESTful API design.',
@@ -172,6 +182,8 @@ export const projectsData = [
     link: '#',
     github: '#',
     tech: ['Node.js', 'JWT', 'AWS S3'],
+    emoji: '🔐',
+    color: '#ec4899',
     
     problem: 'Secure file handling without exposing sensitive data.',
     approach: 'Signed URLs, token-based auth, S3 direct uploads.',

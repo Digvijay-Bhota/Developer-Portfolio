@@ -169,6 +169,7 @@
 .section-title {
   font-size: 1.8rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
   -webkit-background-clip: text;

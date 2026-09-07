@@ -5,14 +5,15 @@ import { projectsData } from '../data/projects';
 import './CommandPalette.css';
 
 const ACTIONS = [
-  { id: 'home', label: 'Go to Home', icon: <FiHome />, type: 'nav', path: '/' },
-  { id: 'about', label: 'Go to About', icon: <FiUser />, type: 'scroll', target: 'about' },
-  { id: 'skills', label: 'Go to Skills', icon: <FiCode />, type: 'scroll', target: 'skills' },
-  { id: 'projects', label: 'Go to Projects', icon: <FiBriefcase />, type: 'scroll', target: 'projects' },
-  { id: 'contact', label: 'Go to Contact', icon: <FiMail />, type: 'scroll', target: 'contact' },
-  { id: 'github', label: 'Open GitHub', icon: <FiGithub />, type: 'link', href: 'https://github.com/Digvijay-Bhota' },
-  { id: 'resume', label: 'Download Resume', icon: <FiFileText />, type: 'link', href: '/Digvijay_Bhota_Resume.pdf' },
+  { group: 'Navigation', id: 'home', label: 'Go to Home', icon: <FiHome />, type: 'nav', path: '/' },
+  { group: 'Navigation', id: 'about', label: 'Go to About', icon: <FiUser />, type: 'scroll', target: 'about' },
+  { group: 'Navigation', id: 'skills', label: 'Go to Skills', icon: <FiCode />, type: 'scroll', target: 'skills' },
+  { group: 'Navigation', id: 'projects', label: 'Go to Projects', icon: <FiBriefcase />, type: 'scroll', target: 'projects' },
+  { group: 'Navigation', id: 'contact', label: 'Go to Contact', icon: <FiMail />, type: 'scroll', target: 'contact' },
+  { group: 'External', id: 'github', label: 'Open GitHub', icon: <FiGithub />, type: 'link', href: 'https://github.com/Digvijay-Bhota' },
+  { group: 'External', id: 'resume', label: 'Download Resume', icon: <FiFileText />, type: 'link', href: '/Digvijay_Bhota_Resume.pdf' },
   ...projectsData.map(p => ({
+    group: 'Projects',
     id: `project-${p.slug}`,
     label: `View Project: ${p.title}`,
     icon: <FiBriefcase />,
@@ -65,7 +66,6 @@ export default function CommandPalette({ open, setOpen }) {
     setOpen(false);
     if (action.type === 'nav') {
       navigate(action.path);
-      // Wait for navigation then scroll to top
       setTimeout(() => window.scrollTo(0, 0), 100);
     } else if (action.type === 'scroll') {
       if (window.location.pathname !== '/') {
@@ -97,6 +97,8 @@ export default function CommandPalette({ open, setOpen }) {
 
   if (!open && !query) return null;
 
+  const activeId = filteredActions[selectedIndex] ? `cmd-option-${filteredActions[selectedIndex].id}` : undefined;
+
   return (
     <div className={`cmd-backdrop ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
       <div className="cmd-palette" onClick={e => e.stopPropagation()} onKeyDown={onKeyDown}>
@@ -105,26 +107,41 @@ export default function CommandPalette({ open, setOpen }) {
           <input
             ref={inputRef}
             className="cmd-input"
+            role="combobox"
+            aria-expanded={open}
+            aria-controls="cmd-listbox"
+            aria-activedescendant={activeId}
+            aria-label="Search commands"
             placeholder="Search commands... (Cmd + K)"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
-        <div className="cmd-results">
+        <div className="cmd-results" id="cmd-listbox" role="listbox">
           {filteredActions.length === 0 ? (
-            <div className="cmd-item" style={{justifyContent: 'center', color: 'var(--text-muted)'}}>No results found.</div>
+            <div className="cmd-item" style={{justifyContent: 'center', color: 'var(--text-muted)'}} role="option" aria-selected="false">No results found.</div>
           ) : (
-            filteredActions.map((action, idx) => (
-              <div
-                key={action.id}
-                className={`cmd-item ${idx === selectedIndex ? 'selected' : ''}`}
-                onClick={() => handleAction(action)}
-                onMouseEnter={() => setSelectedIndex(idx)}
-              >
-                <span className="cmd-item-icon">{action.icon}</span>
-                <span>{action.label}</span>
-              </div>
-            ))
+            filteredActions.map((action, idx) => {
+              const isFirstInGroup = idx === 0 || filteredActions[idx - 1].group !== action.group;
+              return (
+                <React.Fragment key={action.id}>
+                  {isFirstInGroup && (
+                    <div className="cmd-group-title" aria-hidden="true">{action.group}</div>
+                  )}
+                  <div
+                    id={`cmd-option-${action.id}`}
+                    role="option"
+                    aria-selected={idx === selectedIndex}
+                    className={`cmd-item ${idx === selectedIndex ? 'selected' : ''}`}
+                    onClick={() => handleAction(action)}
+                    onMouseEnter={() => setSelectedIndex(idx)}
+                  >
+                    <span className="cmd-item-icon">{action.icon}</span>
+                    <span>{action.label}</span>
+                  </div>
+                </React.Fragment>
+              );
+            })
           )}
         </div>
       </div>
